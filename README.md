@@ -11,14 +11,22 @@ Two different Video8 VCRs are available for testing, one Sony EV-S1000E and one 
 
 The Sony SLV-T2000 has a measured output impedance of 200 Ohm on its Video8 part. The Sony EV-S1000E has a hight output impedance of 1 kOhm. Therefore, more tests will be done on the EV-S1000E as the higher output impedance is more prone to disturbances caused by the low input impedance of a connected amplifier.
 
+### old AD8367 RMS amplifier
+The old [AD8367 RMS amplifier](https://github.com/tandersn/cxadc-hw-mod/wiki/AD8367-RMS-Setup) is not perfectly suited for the amplification of the RF signal of a VCR. It has a relatively low input impedance which can not matched to the output impedance of the VCR and might overload its RF signal. This will result in poor signal quality and can be seen in the image which will look worse as for example a crosshatch pattern can get visible.
+
+[Mounted AD8367 amplifier in its case](AD8367/AD8367_board.jpg)
+
+https://discord.com/channels/665557267189334046/782578245408653313/1169038092661964871
+
+Configuration of AD8367 amplifier is as following:
+- R_out,load (R5): 150 Ohm (2 x 330 Ohm parallel)
+- Cin (C7) + Cout (C6 or C8): 1 uF
+
 
 ### new ADA4857 RMS amplifier
 This variant is using this amplifier https://gitlab.com/wolfre/vhs-rf-amp-ada4857
 
 It is configured to match the VCRs output impedance, which may differ from VCR to VCR. It is also set to a gain so that a possibly weak RF signal is amplified to a proper amplitude for the ADC.
-
-### old AD8367 RMS amplifier
-The old [AD8367 RMS amplifier](https://github.com/tandersn/cxadc-hw-mod/wiki/AD8367-RMS-Setup) is not perfectly suited for the amplification of the RF signal of a VCR. It has a relatively low input impedance which can not matched to the output impedance of the VCR and might overload its RF signal. This will result in poor signal quality and can be seen in the image which will look worse as for example a crosshatch pattern can get visible.
 
 ### Domesday Duplicator
 One [Domesday Duplicator](https://github.com/simoninns/DomesdayDuplicator) is available for testing.
@@ -68,6 +76,8 @@ The following standard modifications have been done on both cards:
 
 ## Comparison and Conclusion
 
+https://imgsli.com/
+
 ### AD8367 (old) vs ADA4857 (new) amplifier
 
 ### Domesday Duplicator vs CX card
@@ -78,3 +88,4 @@ The following standard modifications have been done on both cards:
 Compare Image quality of S1000 with T2000 with perfect matched impedance setup???
 Or compare effects of wrong impedance? e.g. AD8367 with 200 Ohm input impedance might be still fine for T2000 with output impedance of 200 Ohm. But the 200 Ohm input impedance of the AD8367 will be too low for the S1000 which has a output impedance of 1000 Ohm???
 
+### Comparison of better VCR with camcorder (worse image quality?)
