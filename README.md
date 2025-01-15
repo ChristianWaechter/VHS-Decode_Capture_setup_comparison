@@ -95,6 +95,8 @@ In addition, we are going for the RMS setup of the CX card and the AD8367 amplif
 
 
 
+![Connection and configuration diagram of setup with CX cards and AD8367 amplifier](CX_card/CX_card_setup.svg)
+
 
 
 ## Setups and measurements
