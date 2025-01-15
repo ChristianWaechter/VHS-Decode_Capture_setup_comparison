@@ -16,11 +16,18 @@ The old [AD8367 RMS amplifier](https://github.com/tandersn/cxadc-hw-mod/wiki/AD8
 
 ![Mounted AD8367 amplifier in its case](AD8367/AD8367_board.jpg)
 
+
+
 https://discord.com/channels/665557267189334046/782578245408653313/1169038092661964871
 
 Configuration of AD8367 amplifier is as following:
 - R<sub>out,load</sub> (R5): 150 Ohm (2 x 330 Ohm parallel)
 - C<sub>in</sub> (C7) + C<sub>out</sub> (C6 or C8): 1 uF
+
+#1) The easiest thing to do would probably be remove the 150R and replace it with 0R on the amp board. Then you have the 50+165 = 215 (as long as it is below 225 it is fine per ad8367 datasheet).  You must use very short cables if you do this.
+For CX Card mod see: https://github.com/tandersn/cxadc-hw-mod/wiki/CX-CARD:-Modify-PCIe-CX-card-to-work-with-AD8367-(RMS-or-otherwise)
+
+For Amp Board RMS mod see: https://github.com/tandersn/cxadc-hw-mod/wiki/AD8367:-RMS-amp-board-modification
 
 
 ### new ADA4857 RMS amplifier
@@ -70,7 +77,7 @@ A gain of 3.8 ... 6 should be suitable and can be set via the DIP switch on the 
 
 
 ### CX Card
-Two [CX Cards](https://github.com/oyvindln/vhs-decode/wiki/CX-Cards) are available for testing, one with the CXxxxxxxxxxx
+Two [CX Cards](https://github.com/oyvindln/vhs-decode/wiki/CX-Cards) are available for testing, one with the CX23883-39, one with the 25800-112. The first on is [said to be a bit better in terms of capture quality, as it causes less electrical self noise](https://github.com/happycube/cxadc-linux3/wiki/Types-Of-CX2388x-Cards#cx-white-card-old-rca-s-video), therefore this one card will be used.
 
 See https://gitlab.com/wolfre/cx25800-11z-cxadc-rework-measurements for further measurements on the CX cards.
 
@@ -79,6 +86,15 @@ The following standard modifications have been done on both cards:
 - [C31 Removal](https://github.com/oyvindln/vhs-decode/wiki/CX-Cards#c31-removal): Remove C31 to increase SNR
 - [RCA to BNC Replacement](https://github.com/oyvindln/vhs-decode/wiki/CX-Cards#rca-to-bnc-replacement): More convenient connection
 - [Crystal Mod 40 MHz](https://github.com/oyvindln/vhs-decode/wiki/CX-Cards#crystal-mod---5-25usd): Change the crystal so that sampling with 40 MSPS is possible
+
+In addition, we are going for the RMS setup of the CX card and the AD8367 amplifier. [These additional modifications](https://github.com/tandersn/cxadc-hw-mod/wiki/CX-CARD:-Modify-PCIe-CX-card-to-work-with-AD8367-(RMS-or-otherwise)) are required on the CX card for this setup.
+
+
+
+#1) The easiest thing to do would probably be remove the 150R and replace it with 0R on the amp board. Then you have the 50+165 = 215 (as long as it is below 225 it is fine per ad8367 datasheet).  You must use very short cables if you do this.
+
+
+
 
 
 ## Setups and measurements
