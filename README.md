@@ -38,7 +38,9 @@ It is configured to match the VCRs output impedance, which may differ from VCR t
 #### Configuration for Sony EV-S1000E (1000 Ohm output impedance, V<sub>pp</sub> = ***???*** mV):
 Amplifier input impedance R11 & R12 (or R21 & R22): 15 kOhm
 
-Amplifier gain of ***????***, R<sub>in</sub> = R13 & R<sub>f</sub> = R14 (or R<sub>in</sub> = R23 & R<sub>f</sub> = R24): R<sub>in</sub> = ***????*** & R<sub>f</sub> = 560 Ohm
+Amplifier gain of 12.9, R<sub>in</sub> = R13 & R<sub>f</sub> = R14 (or R<sub>in</sub> = R23 & R<sub>f</sub> = R24): R<sub>in</sub> = 47 Ohm & R<sub>f</sub> = 560 Ohm
+
+Domesday Duplicator gain of 2.02 (DIP switch set to 1111)
 
 #### Configuration for Sony SLV-T2000 (200 Ohm output impedance, V<sub>pp</sub> = 260 mV):
 Amplifier input impedance R11 & R12 (or R21 & R22): 3.3 kOhm
@@ -106,6 +108,7 @@ In addition, we are going for the RMS setup of the CX card and the AD8367 amplif
 
 
 ### VCR EV-S1000E > ADA4857 amplifier (new) > Domesday Duplicator (unmodified)
+
 
 
 
