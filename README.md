@@ -11,18 +11,22 @@ Two different Video8 VCRs are available for testing, one Sony EV-S1000E and one 
 
 The Sony SLV-T2000 has a measured output impedance of 200 Ohm on its Video8 part. The Sony EV-S1000E has a hight output impedance of 1 kOhm. Therefore, more tests will be done on the EV-S1000E as the higher output impedance is more prone to disturbances caused by the low input impedance of a connected amplifier.
 
-### old AD8367 RMS amplifier
-The old [AD8367 RMS amplifier](https://github.com/tandersn/cxadc-hw-mod/wiki/AD8367-RMS-Setup) is not perfectly suited for the amplification of the RF signal of a VCR. It has a relatively low input impedance which can not matched to the output impedance of the VCR and might overload its RF signal. This will result in poor signal quality and can be seen in the image which will look worse as for example a crosshatch pattern can get visible.
+### old AD8367 amplifier
+The old [AD8367 amplifier](https://github.com/tandersn/cxadc-hw-mod/wiki/AD8367-RMS-Setup) is not perfectly suited for the amplification of the RF signal of a VCR. It has a relatively low input impedance which can not matched to the output impedance of the VCR and might overload its RF signal. This will result in poor signal quality and can be seen in the image which will look worse as for example a crosshatch pattern can get visible.
 
 ![Mounted AD8367 amplifier in its case](AD8367/AD8367_board.jpg)
+
+#### Configuration for Sony EV-S1000E:
+Domesday Duplicator gain of 8.5 (DIP switch set to 1000)
+AD8367 gain cannot be determined due to use of potentiometer
 
 
 
 https://discord.com/channels/665557267189334046/782578245408653313/1169038092661964871
 
 Configuration of AD8367 amplifier is as following:
-- R<sub>out,load</sub> (R5): 150 Ohm (2 x 330 Ohm parallel)
-- C<sub>in</sub> (C7) + C<sub>out</sub> (C6 or C8): 1 uF
+- R<sub>out,load</sub> (R5): 150 Ohm
+- C<sub>in</sub> (C7) + C<sub>out</sub> (C6 or C8): 47 uF
 
 #1) The easiest thing to do would probably be remove the 150R and replace it with 0R on the amp board. Then you have the 50+165 = 215 (as long as it is below 225 it is fine per ad8367 datasheet).  You must use very short cables if you do this.
 For CX Card mod see: https://github.com/tandersn/cxadc-hw-mod/wiki/CX-CARD:-Modify-PCIe-CX-card-to-work-with-AD8367-(RMS-or-otherwise)
@@ -30,7 +34,7 @@ For CX Card mod see: https://github.com/tandersn/cxadc-hw-mod/wiki/CX-CARD:-Modi
 For Amp Board RMS mod see: https://github.com/tandersn/cxadc-hw-mod/wiki/AD8367:-RMS-amp-board-modification
 
 
-### new ADA4857 RMS amplifier
+### new ADA4857 amplifier
 This variant is using this amplifier https://gitlab.com/wolfre/vhs-rf-amp-ada4857
 
 It is configured to match the VCRs output impedance, which may differ from VCR to VCR. It is also set to a gain so that a possibly weak RF signal is amplified to a proper amplitude for the ADC.
@@ -38,7 +42,7 @@ It is configured to match the VCRs output impedance, which may differ from VCR t
 #### Configuration for Sony EV-S1000E (1000 Ohm output impedance, V<sub>pp</sub> = ***???*** mV):
 Amplifier input impedance R11 & R12 (or R21 & R22): 15 kOhm
 
-Amplifier gain of 9.2, R<sub>in</sub> = R13 & R<sub>f</sub> = R14 (or R<sub>in</sub> = R23 & R<sub>f</sub> = R24): R<sub>in</sub> = 68 Ohm & R<sub>f</sub> = 560 Ohm
+Amplifier gain of 6.6, R<sub>in</sub> = R13 & R<sub>f</sub> = R14 (or R<sub>in</sub> = R23 & R<sub>f</sub> = R24): R<sub>in</sub> = 100 Ohm & R<sub>f</sub> = 560 Ohm
 
 Domesday Duplicator gain of 2.02 (DIP switch set to 1111)
 
@@ -53,14 +57,17 @@ Amplifier gain of 6.6, R<sub>in</sub> = R13 & R<sub>f</sub> = R14 (or R<sub>in</
 ### Domesday Duplicator
 One [Domesday Duplicator](https://github.com/simoninns/DomesdayDuplicator) is available for testing.
 
+#### Domesday Duplicator not modified
+
 On the unmodified version, the Domesday Duplicator is identical to the hardware assembly as provided in the git. The input impedance is 50 Ohm which will cause a high load on the RF output of the VCR when not using a additional impedance matching circuit (like the ADA4857 amplifier).
-
-On the modified version, the input filter/impedance and gain setting will be changed to match the VCRs output impedance and signal strength. This is usually done on the [ADA4857 amplifier](https://github.com/oyvindln/vhs-decode/wiki/CX-Cards#external-amplification). But as the Domesday Duplicator already has an amplifier on board, removing that additional ADA4857 amplifier might increase the signal quality.
-
 
 ![unmodified DdD input stage](DdD/DdD_input_stage.png)
 
+
 #### Domesday Duplicator modification
+
+On the modified version, the input filter/impedance and gain setting will be changed to match the VCRs output impedance and signal strength. This is usually done on the [ADA4857 amplifier](https://github.com/oyvindln/vhs-decode/wiki/CX-Cards#external-amplification). But as the Domesday Duplicator already has an amplifier on board, removing that additional ADA4857 amplifier might increase the signal quality.
+
 
 Change the total input impedance to 75 Ohm by changing R401 to 88 Ohm. When taking R402 & R403 into account, this will result in a total input impedance of 75 Ohm which matches the output impedance of the new ADA4857 amplifier.
 > R401 = 120 Ohm parallel to 330 Ohm = 88 Ohm
