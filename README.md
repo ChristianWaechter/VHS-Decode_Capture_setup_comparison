@@ -14,7 +14,9 @@ The Sony SLV-T2000 has a measured output impedance of 200 Ohm on its Video8 part
 ### old AD8367 amplifier
 The old [AD8367 amplifier](https://github.com/tandersn/cxadc-hw-mod/wiki/AD8367-RMS-Setup) is not perfectly suited for the amplification of the RF signal of a VCR. It has a relatively low input impedance which can not matched to the output impedance of the VCR and might overload its RF signal. This will result in poor signal quality and can be seen in the image which will look worse as for example a crosshatch pattern can get visible.
 
-![Mounted AD8367 amplifier in its case](AD8367/AD8367_board.jpg)
+
+![Mounted AD8367 amplifier seen under microscope](AD8367/AD8367_board.jpg)
+![Mounted AD8367 amplifier in its case](AD8367/AD8367_board_case.jpg)
 
 #### Configuration for Sony EV-S1000E:
 Domesday Duplicator gain of 8.5 (DIP switch set to 1000)
@@ -26,9 +28,21 @@ https://discord.com/channels/665557267189334046/782578245408653313/1169038092661
 
 Configuration of AD8367 amplifier is as following:
 - R<sub>out,load</sub> (R5): 150 Ohm
-- C<sub>in</sub> (C7) + C<sub>out</sub> (C6 or C8): 47 uF
+- C<sub>in</sub> (C7) + C<sub>out</sub> (C8): 47 uF
 
-#1) The easiest thing to do would probably be remove the 150R and replace it with 0R on the amp board. Then you have the 50+165 = 215 (as long as it is below 225 it is fine per ad8367 datasheet).  You must use very short cables if you do this.
+Which ad8367 board do you have?  If there is no resistor to ground on the input side of the amp, then yes, you can remove the jig capacitor.
+
+For VHS and 28.6msps or higher sampling, the low pass filter is not required really, as the sample rate is high enough to capture the harmonics.
+
+It does look like you used the amp mod from the 75 ohm setup and the card mod for the 200 ohm setup.  You have a few options:
+
+#1) The easiest thing to do would probably be remove the 150R and replace it with 0R on the amp board.  Then you have the 50+165 = 215 (as long as it is below 225 it is fine per ad8367 datasheet).  You must use very short cables if you do this.
+
+#2) Alternately,  leave the 150R on the amp board, take the 50R in series out of the circuit completely, remove the 2 330R from the card, and put the 75R back in R24 spot.
+
+The 50R in series works in conjunction with the 165R (2x330R) on the card.  If you just leave the 50R in series without a resistor to ground on the CX card, you may not get ideal results.
+
+
 For CX Card mod see: https://github.com/tandersn/cxadc-hw-mod/wiki/CX-CARD:-Modify-PCIe-CX-card-to-work-with-AD8367-(RMS-or-otherwise)
 
 For Amp Board RMS mod see: https://github.com/tandersn/cxadc-hw-mod/wiki/AD8367:-RMS-amp-board-modification
