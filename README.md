@@ -66,21 +66,39 @@ On the unmodified version, the Domesday Duplicator is identical to the hardware 
 
 #### Domesday Duplicator modification
 
-On the modified version, the input filter/impedance and gain setting will be changed to match the VCRs output impedance and signal strength. This is usually done on the [ADA4857 amplifier](https://github.com/oyvindln/vhs-decode/wiki/CX-Cards#external-amplification). But as the Domesday Duplicator already has an amplifier on board, removing that additional ADA4857 amplifier might increase the signal quality.
+On the modified version, the input filter/impedance and gain setting will be changed to match the VCRs output impedance and signal strength. This is usually done on the [ADA4857 amplifier](https://github.com/oyvindln/vhs-decode/wiki/CX-Cards#external-amplification). But as the Domesday Duplicator already has an amplifier on board, removing that additional ADA4857 amplifier might increase the signal quality or at least remove unnecessary circuitry.
+
+C401 = increase to 47 uF
+change R401 to 47 kOhm (or remove it completelly) and change R402 & R403 to 22 kOhm (or 33 kOhm when R401 is not assembled)
+Change the total input impedance to 15 kOhm by changing R401 to 88 Ohm. When taking R402 & R403 into account, this will result in a total input impedance of 75 Ohm which matches the output impedance of the new ADA4857 amplifier.
 
 
-Change the total input impedance to 75 Ohm by changing R401 to 88 Ohm. When taking R402 & R403 into account, this will result in a total input impedance of 75 Ohm which matches the output impedance of the new ADA4857 amplifier.
-> R401 = 120 Ohm parallel to 330 Ohm = 88 Ohm
 
-> C401 = increase to 10 uF ***(????)***
+
+
+
+
+
 
 A gain of 3.8 ... 6 should be suitable and can be set via the DIP switch on the DdD. No hardware change is required.
 
 | Configuration | Switches | Gain |
 | --- | --- | --- |
+| 15 | 1111 | 2.02 |
+| 7 | 0111 | 2.17 |
+| 11 | 1011 | 2.27 |
+| 13 | 1101 | 2.45 |
+| 3 | 0011 | 2.54 |
+| 14 | 1110 | 2.59 |
+| 5 | 0101 | 2.79 |
+| 6 | 0110 | 3.02 |
+| 9 | 1001 | 3.04 |
+| 10 | 1010 | 3.34 |
 | 1 | 0001 | 3.8 |
+| 12 | 1100 | 4 |
 | 2 | 0010 | 4.4 |
 | 4 | 0100 | 6 |
+| 8 | 1000 | 8.5 |
 
  	 
 
