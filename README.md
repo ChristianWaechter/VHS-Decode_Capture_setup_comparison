@@ -18,7 +18,7 @@ The old [AD8367 amplifier](https://github.com/tandersn/cxadc-hw-mod/wiki/AD8367-
 ![Mounted AD8367 amplifier seen under microscope](AD8367/AD8367_board.jpg)
 
 
-![Mounted AD8367 amplifier in its case](AD8367/AD8367_board_case.jpg?raw=true)
+![Mounted AD8367 amplifier in its case](AD8367/AD8367_board_case.jpg?)
 
 #### Configuration for Sony EV-S1000E:
 Domesday Duplicator gain of 8.5 (DIP switch set to 1000)
