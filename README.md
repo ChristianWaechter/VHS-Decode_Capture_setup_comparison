@@ -16,6 +16,8 @@ The old [AD8367 amplifier](https://github.com/tandersn/cxadc-hw-mod/wiki/AD8367-
 
 
 ![Mounted AD8367 amplifier seen under microscope](AD8367/AD8367_board.jpg)
+
+
 ![Mounted AD8367 amplifier in its case](AD8367/AD8367_board_case.jpg)
 
 #### Configuration for Sony EV-S1000E:
