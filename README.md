@@ -69,15 +69,10 @@ On the unmodified version, the Domesday Duplicator is identical to the hardware 
 On the modified version, the input filter/impedance and gain setting will be changed to match the VCRs output impedance and signal strength. This is usually done on the [ADA4857 amplifier](https://github.com/oyvindln/vhs-decode/wiki/CX-Cards#external-amplification). But as the Domesday Duplicator already has an amplifier on board, removing that additional ADA4857 amplifier might increase the signal quality or at least remove unnecessary circuitry.
 
 C401 = increase to 47 uF
+
 change R401 to 47 kOhm (or remove it completelly) and change R402 & R403 to 22 kOhm (or 33 kOhm when R401 is not assembled)
-Change the total input impedance to 15 kOhm by changing R401 to 88 Ohm. When taking R402 & R403 into account, this will result in a total input impedance of 75 Ohm which matches the output impedance of the new ADA4857 amplifier.
 
-
-
-
-
-
-
+Change the total input impedance to 15 kOhm by changing R401 to xx Ohm. When taking R402 & R403 into account, this will result in a total input impedance of xx Ohm which matches the output impedance of the new ADA4857 amplifier.
 
 
 A gain of 3.8 ... 6 should be suitable and can be set via the DIP switch on the DdD. No hardware change is required.
@@ -122,33 +117,34 @@ In addition, we are going for the RMS setup of the CX card and the AD8367 amplif
 
 
 
-![Connection and configuration diagram of setup with CX cards and AD8367 amplifier](CX_card/CX_card_setup.svg)
-
-
 
 ## Setups and measurements
 
-### VCR EV-S1000E > AD8367 RMS amplifier (old) > Domesday Duplicator (unmodified)
+### VCR EV-S1000E > AD8367 amplifier (old) > Domesday Duplicator (unmodified)
 
+![Connection and configuration diagram of setup with Domesday Duplicator and AD8367 amplifier (old)](setups/DdD+AD8367_non_RMS_setup.svg)
 
 
 ### VCR EV-S1000E > ADA4857 amplifier (new) > Domesday Duplicator (unmodified)
 
-
+![Connection and configuration diagram of setup with Domesday Duplicator and ADA4857 amplifier (new)](setups/DdD+ADA4857_setup.svg)
 
 
 ### VCR EV-S1000E > ADA4857 amplifier (new) > CX card (modified)
 
-
+![Connection and configuration diagram of setup with CX card and ADA4857 amplifier (new)](setups/CX_card+ADA4857_setup.svg)
 
 ### VCR EV-S1000E > Domesday Duplicator (unmodified)
 
+![Connection and configuration diagram of setup with unmodified Domesday Duplicator](setups/DdD_setup.svg)
 
 ### VCR EV-S1000E > Domesday Duplicator (modified)
 
+![Connection and configuration diagram of setup with modified Domesday Duplicator and first VCR](setups/DdD_modified_setup.svg)
 
 ### other VCR SLV-T2000 > Domesday Duplicator (modified)
 
+![Connection and configuration diagram of setup with modified Domesday Duplicator and second VCR](setups/DdD_modified_setup.svg)
 
 
 
