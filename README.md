@@ -15,7 +15,7 @@ The Sony SLV-T2000 has a measured output impedance of 200 Ohm on its Video8 part
 The old [AD8367 amplifier](https://github.com/tandersn/cxadc-hw-mod/wiki/AD8367-RMS-Setup) is not perfectly suited for the amplification of the RF signal of a VCR. It has a relatively low input impedance which can not matched to the output impedance of the VCR and might overload its RF signal. This will result in poor signal quality and can be seen in the image which will look worse as for example a crosshatch pattern can get visible.
 
 
-![Mounted AD8367 amplifier seen under microscope](AD8367/AD8367_board.jpg?raw=true)
+![Mounted AD8367 amplifier seen under microscope](AD8367/AD8367_board.jpg)
 
 
 ![Mounted AD8367 amplifier in its case](AD8367/AD8367_board_case.jpg?raw=true)
