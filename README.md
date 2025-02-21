@@ -84,14 +84,11 @@ On the unmodified version, the Domesday Duplicator is identical to the hardware 
 
 On the modified version, the input filter/impedance and gain setting will be changed to match the VCRs output impedance and signal strength. This is usually done on the [ADA4857 amplifier](https://github.com/oyvindln/vhs-decode/wiki/CX-Cards#external-amplification). But as the Domesday Duplicator already has an amplifier on board, removing that additional ADA4857 amplifier might increase the signal quality or at least remove unnecessary circuitry.
 
-C401 = increase to 47 uF
+- C<sub>in</sub> (C401): 47 uF
+- R<sub>in,load</sub> (R401): removed, not assambled
+- R<sub>bias</sub> (R402 & R403): 33 kOhm each
 
-change R401 to 47 kOhm (or remove it completelly) and change R402 & R403 to 22 kOhm (or 33 kOhm when R401 is not assembled)
-
-Change the total input impedance to 15 kOhm by changing R401 to xx Ohm. When taking R402 & R403 into account, this will result in a total input impedance of xx Ohm which matches the output impedance of the new ADA4857 amplifier.
-
-
-A gain of 3.8 ... 6 should be suitable and can be set via the DIP switch on the DdD. No hardware change is required.
+The gain range should still be suitable and can be set via the DIP switch on the DdD. No hardware change is required. Gain could be increased further by changing R407 to 3.3 kOhm.
 
 | Configuration | Switches | Gain |
 | --- | --- | --- |
@@ -109,9 +106,7 @@ A gain of 3.8 ... 6 should be suitable and can be set via the DIP switch on the 
 | 12 | 1100 | 4 |
 | 2 | 0010 | 4.4 |
 | 4 | 0100 | 6 |
-| 8 | 1000 | 8.5 |
-
- 	 
+| 8 | 1000 | 8.5 |	 
 
 
 ### CX Card
