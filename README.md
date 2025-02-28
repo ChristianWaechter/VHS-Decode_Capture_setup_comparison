@@ -104,6 +104,8 @@ On the modified version, the input filter/impedance and gain setting will be cha
 
 Even the lowest gain setting of 2.02 of the Domesday Duplicator resulted in a lot of clipping. So the gain needs to be reduced further, e.g. by configuring the operational amplifier as a voltage follower with gain of 1. This is done by changing R<sub>FB</sub>, R<sub>FB, GND</sub> and C<sub>FB,GND</sub> as listed below.
 
+https://discord.com/channels/665557267189334046/782578245408653313/1343333900969312398
+
 - C<sub>in</sub> (C401): 47 uF
 - R<sub>bias</sub> (R402 & R403): 33 kOhm each
 - R<sub>in,load</sub> (R401): removed, not assambled
