@@ -12,7 +12,7 @@ Two different Video8 VCRs are available for testing, one Sony EV-S1000E and one 
 The Sony SLV-T2000 has a measured output impedance of 200 Ohm on its Video8 part. The Sony EV-S1000E has a hight output impedance of 1 kOhm. Therefore, more tests will be done on the EV-S1000E as the higher output impedance is more prone to disturbances caused by the low input impedance of a connected amplifier.
 
 ![Image showing the Sony EV-S1000E with the new ADA4857 amplifier connected directly to the test pin header of the head amp](setups/VCR_S1000_tap_point.jpg)
-Image showing the Sony EV-S1000E with the new ADA4857 amplifier connected directly to the test pin header of the head amp. The coax cable connects either to the Domesday Duplicator mounted in a aluminum case or to the CX card mounted in the PC.
+Image showing the Sony EV-S1000E with the new ADA4857 amplifier connected directly to the test pin header of the head amp (bottom left). Red and black wires connect to the +12 VDC power of the VCR (bottom right). The coax cable connects either to the Domesday Duplicator mounted in a aluminum case (top middle) or to the CX card mounted in the PC (top left).
 
 ### old AD8367 amplifier
 The old [AD8367 amplifier](https://github.com/tandersn/cxadc-hw-mod/wiki/AD8367-RMS-Setup) is not perfectly suited for the amplification of the RF signal of a VCR. It has a relatively low input impedance which can not matched to the output impedance of the VCR and might overload its RF signal. This will result in poor signal quality and can be seen in the image which will look worse as for example a crosshatch pattern can get visible.
