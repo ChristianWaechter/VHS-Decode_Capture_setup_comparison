@@ -24,30 +24,13 @@ The old [AD8367 amplifier](https://github.com/tandersn/cxadc-hw-mod/wiki/AD8367-
 Domesday Duplicator gain of 8.5 (DIP switch set to 1000)
 AD8367 gain cannot be determined due to use of potentiometer
 
-
-
 https://discord.com/channels/665557267189334046/782578245408653313/1169038092661964871
 
-Configuration of AD8367 amplifier is as following:
+Configuration of AD8367 amplifier is as following (assembly might differ in images):
 - R<sub>out,load</sub> (R5): 150 Ohm
 - C<sub>in</sub> (C7) + C<sub>out</sub> (C8): 47 uF
 
-Which ad8367 board do you have?  If there is no resistor to ground on the input side of the amp, then yes, you can remove the jig capacitor.
-
-For VHS and 28.6msps or higher sampling, the low pass filter is not required really, as the sample rate is high enough to capture the harmonics.
-
-It does look like you used the amp mod from the 75 ohm setup and the card mod for the 200 ohm setup.  You have a few options:
-
-#1) The easiest thing to do would probably be remove the 150R and replace it with 0R on the amp board.  Then you have the 50+165 = 215 (as long as it is below 225 it is fine per ad8367 datasheet).  You must use very short cables if you do this.
-
-#2) Alternately,  leave the 150R on the amp board, take the 50R in series out of the circuit completely, remove the 2 330R from the card, and put the 75R back in R24 spot.
-
-The 50R in series works in conjunction with the 165R (2x330R) on the card.  If you just leave the 50R in series without a resistor to ground on the CX card, you may not get ideal results.
-
-
-For CX Card mod see: https://github.com/tandersn/cxadc-hw-mod/wiki/CX-CARD:-Modify-PCIe-CX-card-to-work-with-AD8367-(RMS-or-otherwise)
-
-For Amp Board RMS mod see: https://github.com/tandersn/cxadc-hw-mod/wiki/AD8367:-RMS-amp-board-modification
+For Amp Board  mod see: [https://github.com/tandersn/cxadc-hw-mod/wiki/AD8367:-RMS-amp-board-modification](https://github.com/tandersn/cxadc-hw-mod/wiki/AD8367bigpot-amp-board-modification)
 
 
 ### new ADA4857 amplifier
@@ -73,10 +56,6 @@ Amplifier gain of 6.6, R<sub>in</sub> = R13 & R<sub>f</sub> = R14 (or R<sub>in</
 ### Domesday Duplicator
 One [Domesday Duplicator](https://github.com/simoninns/DomesdayDuplicator) is available for testing.
 
-#### Domesday Duplicator not modified
-
-On the unmodified version, the Domesday Duplicator is identical to the hardware assembly as provided in the git. The input impedance is 50 Ohm which will cause a high load on the RF output of the VCR when not using a additional impedance matching circuit (like the ADA4857 amplifier). Even with the maximuim gain of 8.5 of the Domesday Duplicator, the signal level was pretty low.
-
 ![unmodified DdD input stage](DdD/DdD_input_stage.png)
 
 | Configuration | Switches | Gain |
@@ -95,24 +74,26 @@ On the unmodified version, the Domesday Duplicator is identical to the hardware 
 | 12 | 1100 | 4 |
 | 2 | 0010 | 4.4 |
 | 4 | 0100 | 6 |
-| 8 | 1000 | 8.5 |	 
+| 8 | 1000 | 8.5 |	
 
+#### Domesday Duplicator not modified
 
+On the unmodified version, the Domesday Duplicator is identical to the hardware assembly as provided in the git. The input impedance is 50 Ohm which will cause a high load on the RF output of the VCR when not using a additional impedance matching circuit (like the ADA4857 amplifier). Even with the maximuim gain of 8.5 of the Domesday Duplicator, the signal level was pretty low.
+ 
 #### Domesday Duplicator modification
 
 On the modified version, the input filter/impedance and gain setting will be changed to match the VCRs output impedance and signal strength. This is usually done on the [ADA4857 amplifier](https://github.com/oyvindln/vhs-decode/wiki/CX-Cards#external-amplification). But as the Domesday Duplicator already has an amplifier on board, removing that additional ADA4857 amplifier might increase the signal quality or at least remove unnecessary circuitry.
 
-Even the lowest gain setting of 2.02 of the Domesday Duplicator resulted in a lot of clipping. So the gain needs to be reduced further, e.g. by configuring the operational amplifier as a voltage follower with gain of 1. This is done by changing R<sub>FB</sub>, R<sub>FB, GND</sub> and C<sub>FB,GND</sub> as listed below.
-
-https://discord.com/channels/665557267189334046/782578245408653313/1343333900969312398
-
 - C<sub>in</sub> (C401): 47 uF
 - R<sub>bias</sub> (R402 & R403): 33 kOhm each
 - R<sub>in,load</sub> (R401): removed, not assambled
-- C<sub>FB,GND</sub> (C402): removed, not assambled
-- R<sub>FB,GND</sub> (R405): removed, not assambled
-- R<sub>FB</sub> (R409): 25 Ohm
 
+Image with modifications (obsolete, as this included the ADA4857 amp which was wrong!): https://discord.com/channels/665557267189334046/782578245408653313/1343333900969312398
+Even the lowest gain setting of 2.02 of the Domesday Duplicator resulted in a lot of clipping. So the gain needs to be reduced further, e.g. by configuring the operational amplifier as a voltage follower with gain of 1. This is done by changing R<sub>FB</sub>, R<sub>FB, GND</sub> and C<sub>FB,GND</sub> as listed below.
+
+https://discord.com/channels/665557267189334046/782578245408653313/1345508640081313802
+
+**TODO:** With a gain of 4.4 the signal showes a goodsignal amplitude with ~30% headroom. However, a DC offset was now visible in the captured signal. That did not allow the use of a higher gain setting, as the positive signal amplitude might have clipped otherwise. 
 
 
 
@@ -127,12 +108,21 @@ The following standard modifications have been done on both cards:
 - [RCA to BNC Replacement](https://github.com/oyvindln/vhs-decode/wiki/CX-Cards#rca-to-bnc-replacement): More convenient connection
 - [Crystal Mod 40 MHz](https://github.com/oyvindln/vhs-decode/wiki/CX-Cards#crystal-mod---5-25usd): Change the crystal so that sampling with 40 MSPS is possible
 
-In addition, we are going for the RMS setup of the CX card and the AD8367 amplifier. [These additional modifications](https://github.com/tandersn/cxadc-hw-mod/wiki/CX-CARD:-Modify-PCIe-CX-card-to-work-with-AD8367-(RMS-or-otherwise)) are required on the CX card for this setup.
+The following parameters and commands have been used for capturing with the [cxadc driver](https://github.com/happycube/cxadc-linux3)
 
+**10-bit ?????**
 
+```
+cxvalues    TODO TODO TODO TODO TODO TODO
 
-#1) The easiest thing to do would probably be remove the 150R and replace it with 0R on the amp board. Then you have the 50+165 = 215 (as long as it is below 225 it is fine per ad8367 datasheet).  You must use very short cables if you do this.
+center_offset = 5
+level = 0
+sixdb = 0
+vmux = 1
+tenxfsc = 0
 
+timeout 10s cat /dev/cxadc0 |pv > CX_Card_28msps_8-bit.u8
+```
 
 
 
