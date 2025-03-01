@@ -11,6 +11,9 @@ Two different Video8 VCRs are available for testing, one Sony EV-S1000E and one 
 
 The Sony SLV-T2000 has a measured output impedance of 200 Ohm on its Video8 part. The Sony EV-S1000E has a hight output impedance of 1 kOhm. Therefore, more tests will be done on the EV-S1000E as the higher output impedance is more prone to disturbances caused by the low input impedance of a connected amplifier.
 
+![Image showing the Sony EV-S1000E with the new ADA4857 amplifier connected directly to the test pin header of the head amp](setups/VCR_S1000_tap_point.jpg)
+Image showing the Sony EV-S1000E with the new ADA4857 amplifier connected directly to the test pin header of the head amp. The coax cable connects either to the Domesday Duplicator mounted in a aluminum case or to the CX card mounted in the PC.
+
 ### old AD8367 amplifier
 The old [AD8367 amplifier](https://github.com/tandersn/cxadc-hw-mod/wiki/AD8367-RMS-Setup) is not perfectly suited for the amplification of the RF signal of a VCR. It has a relatively low input impedance which can not matched to the output impedance of the VCR and might overload its RF signal. This will result in poor signal quality and can be seen in the image which will look worse as for example a crosshatch pattern can get visible.
 
@@ -20,17 +23,17 @@ The old [AD8367 amplifier](https://github.com/tandersn/cxadc-hw-mod/wiki/AD8367-
 
 ![Mounted AD8367 amplifier in its case](AD8367/AD8367_board_case.jpg?)
 
+Assembly of AD8367 amplifier is as following (assembly might differ in images):
+- R<sub>out,load</sub> (R5): 150 Ohm
+- C<sub>in</sub> (C7) + C<sub>out</sub> (C8): 47 uF
+
+For Amp Board  mod see: [https://github.com/tandersn/cxadc-hw-mod/wiki/AD8367:-RMS-amp-board-modification](https://github.com/tandersn/cxadc-hw-mod/wiki/AD8367bigpot-amp-board-modification)
+
 #### Configuration for Sony EV-S1000E:
 Domesday Duplicator gain of 8.5 (DIP switch set to 1000)
 AD8367 gain cannot be determined due to use of potentiometer
 
 https://discord.com/channels/665557267189334046/782578245408653313/1169038092661964871
-
-Configuration of AD8367 amplifier is as following (assembly might differ in images):
-- R<sub>out,load</sub> (R5): 150 Ohm
-- C<sub>in</sub> (C7) + C<sub>out</sub> (C8): 47 uF
-
-For Amp Board  mod see: [https://github.com/tandersn/cxadc-hw-mod/wiki/AD8367:-RMS-amp-board-modification](https://github.com/tandersn/cxadc-hw-mod/wiki/AD8367bigpot-amp-board-modification)
 
 
 ### new ADA4857 amplifier
@@ -44,14 +47,6 @@ Amplifier input impedance R11 & R12 (or R21 & R22): 15 kOhm
 Amplifier gain of 6.6, R<sub>in</sub> = R13 & R<sub>f</sub> = R14 (or R<sub>in</sub> = R23 & R<sub>f</sub> = R24): R<sub>in</sub> = 100 Ohm & R<sub>f</sub> = 560 Ohm
 
 Domesday Duplicator gain of 2.02 (DIP switch set to 1111)
-
-#### Configuration for Sony SLV-T2000 (200 Ohm output impedance, V<sub>pp</sub> = 260 mV):
-Amplifier input impedance R11 & R12 (or R21 & R22): 3.3 kOhm
-
-Amplifier gain of 6.6, R<sub>in</sub> = R13 & R<sub>f</sub> = R14 (or R<sub>in</sub> = R23 & R<sub>f</sub> = R24): R<sub>in</sub> = 100 & R<sub>f</sub> = 560 Ohm
-
-
-
 
 ### Domesday Duplicator
 One [Domesday Duplicator](https://github.com/simoninns/DomesdayDuplicator) is available for testing.
@@ -84,6 +79,8 @@ On the unmodified version, the Domesday Duplicator is identical to the hardware 
 
 On the modified version, the input filter/impedance and gain setting will be changed to match the VCRs output impedance and signal strength. This is usually done on the [ADA4857 amplifier](https://github.com/oyvindln/vhs-decode/wiki/CX-Cards#external-amplification). But as the Domesday Duplicator already has an amplifier on board, removing that additional ADA4857 amplifier might increase the signal quality or at least remove unnecessary circuitry.
 
+
+#### Configuration for Sony EV-S1000E (1000 Ohm output impedance, V<sub>pp</sub> = ***???*** mV):
 - C<sub>in</sub> (C401): 47 uF
 - R<sub>bias</sub> (R402 & R403): 33 kOhm each
 - R<sub>in,load</sub> (R401): removed, not assambled
@@ -94,6 +91,9 @@ Even the lowest gain setting of 2.02 of the Domesday Duplicator resulted in a lo
 https://discord.com/channels/665557267189334046/782578245408653313/1345508640081313802
 
 **TODO:** With a gain of 4.4 the signal showes a goodsignal amplitude with ~30% headroom. However, a DC offset was now visible in the captured signal. That did not allow the use of a higher gain setting, as the positive signal amplitude might have clipped otherwise. 
+
+
+#### Configuration for Sony SLV-T2000 (200 Ohm output impedance, V<sub>pp</sub> = 260 mV): TODO TODO TODO!!!
 
 
 
@@ -110,7 +110,7 @@ The following standard modifications have been done on both cards:
 
 The following parameters and commands have been used for capturing with the [cxadc driver](https://github.com/happycube/cxadc-linux3)
 
-**10-bit ?????**
+**10-bit ????? TODO: Clarify how to capture in 10-bit mode**
 
 ```
 cxvalues    TODO TODO TODO TODO TODO TODO
