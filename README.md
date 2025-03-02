@@ -44,9 +44,13 @@ It is configured to match the VCRs output impedance, which may differ from VCR t
 #### Configuration for Sony EV-S1000E (1000 Ohm output impedance, V<sub>pp</sub> = ***???*** mV):
 Amplifier input impedance R11 & R12 (or R21 & R22): 15 kOhm
 
+##### Domesday Duplicator:
 Amplifier gain of 6.6, R<sub>in</sub> = R13 & R<sub>f</sub> = R14 (or R<sub>in</sub> = R23 & R<sub>f</sub> = R24): R<sub>in</sub> = 100 Ohm & R<sub>f</sub> = 560 Ohm
-
 Domesday Duplicator gain of 2.02 (DIP switch set to 1111)
+
+##### CX Card:
+Amplifier gain of 11, R<sub>in</sub> = R13 & R<sub>f</sub> = R14 (or R<sub>in</sub> = R23 & R<sub>f</sub> = R24): R<sub>in</sub> = 56 Ohm & R<sub>f</sub> = 560 Ohm
+
 
 ### Domesday Duplicator
 One [Domesday Duplicator](https://github.com/simoninns/DomesdayDuplicator) is available for testing.
@@ -84,13 +88,11 @@ On the modified version, the input filter/impedance and gain setting will be cha
 - C<sub>in</sub> (C401): 47 uF
 - R<sub>bias</sub> (R402 & R403): 33 kOhm each
 - R<sub>in,load</sub> (R401): removed, not assambled
-
-Image with modifications (obsolete, as this included the ADA4857 amp which was wrong!): https://discord.com/channels/665557267189334046/782578245408653313/1343333900969312398
-Even the lowest gain setting of 2.02 of the Domesday Duplicator resulted in a lot of clipping. So the gain needs to be reduced further, e.g. by configuring the operational amplifier as a voltage follower with gain of 1. This is done by changing R<sub>FB</sub>, R<sub>FB, GND</sub> and C<sub>FB,GND</sub> as listed below.
+- R<sub>ADC,bias</sub> (R302): 1.5 kOhm
 
 https://discord.com/channels/665557267189334046/782578245408653313/1345508640081313802
 
-**TODO:** With a gain of 4.4 the signal showes a goodsignal amplitude with ~30% headroom. However, a DC offset was now visible in the captured signal. That did not allow the use of a higher gain setting, as the positive signal amplitude might have clipped otherwise. 
+With a gain of 4.4 the signal showes a good signal amplitude with ~30% headroom. However, a DC offset was now visible in the captured signal. That did not allow the use of a higher gain setting, as the positive signal amplitude might have clipped otherwise. Changing R302 from 1k2 to 1k5 added more offset to the signal which was now centered again. This allowed the use of a higher gain of 6 resulting in ~20% headroom on both the positive and negative amplitudes.
 
 
 #### Configuration for Sony SLV-T2000 (200 Ohm output impedance, V<sub>pp</sub> = 260 mV): TODO TODO TODO!!!
@@ -115,13 +117,13 @@ The following parameters and commands have been used for capturing with the [cxa
 ```
 cxvalues    TODO TODO TODO TODO TODO TODO
 
-center_offset = 5
+center_offset = 7
 level = 0
 sixdb = 0
 vmux = 1
 tenxfsc = 0
 
-timeout 10s cat /dev/cxadc0 |pv > CX_Card_28msps_8-bit.u8
+timeout 10s cat /dev/cxadc0 |pv > CX_Card_40msps_8-bit.u8
 ```
 
 
