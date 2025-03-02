@@ -112,21 +112,18 @@ The following standard modifications have been done on both cards:
 
 The following parameters and commands have been used for capturing with the [cxadc driver](https://github.com/happycube/cxadc-linux3)
 
-**10-bit ????? TODO: Clarify how to capture in 10-bit mode**
-
+Result of command `cxvalues`:
 ```
-cxvalues    TODO TODO TODO TODO TODO TODO
-
-center_offset = 7
-level = 0
-sixdb = 0
-vmux = 1
-tenxfsc = 0
-
-timeout 10s cat /dev/cxadc0 |pv > CX_Card_40msps_8-bit.u8
+/sys/class/cxadc/cxadc0/device/parameters/sixdb 0
+/sys/class/cxadc/cxadc0/device/parameters/tenbit 0
+/sys/class/cxadc/cxadc0/device/parameters/audsel -1
+/sys/class/cxadc/cxadc0/device/parameters/center_offset 7
+/sys/class/cxadc/cxadc0/device/parameters/latency -1
+/sys/class/cxadc/cxadc0/device/parameters/crystal 40000000
+/sys/class/cxadc/cxadc0/device/parameters/vmux 1
+/sys/class/cxadc/cxadc0/device/parameters/tenxfsc 0
+/sys/class/cxadc/cxadc0/device/parameters/level 0
 ```
-
-
 
 ## Setups and measurements
 
