@@ -77,11 +77,11 @@ One [Domesday Duplicator](https://github.com/simoninns/DomesdayDuplicator) is av
 
 #### Domesday Duplicator not modified
 
-On the unmodified version, the Domesday Duplicator is identical to the hardware assembly as provided in the git. The input impedance is 50 Ohm which will cause a high load on the RF output of the VCR when not using a additional impedance matching circuit (like the ADA4857 amplifier). Even with the maximuim gain of 8.5 of the Domesday Duplicator, the signal level was pretty low.
+On the unmodified version, the Domesday Duplicator is identical to the hardware assembly as provided in the git. The input impedance is 50 Ohm which will cause a high load on the RF output of the VCR when not using a additional impedance matching circuit (like the ADA4857 amplifier). Even with the maximuim gain of 8.5 of the Domesday Duplicator, the signal level was pretty low. In addition, the cable from the RF tap point to the Domesday Duplicator might be longer than a cable to an ADA4857 amplifier which can have a negative impact on the signal.
  
 #### Domesday Duplicator modification
 
-On the modified version, the input filter/impedance and gain setting will be changed to match the VCRs output impedance and signal strength. This is usually done on the [ADA4857 amplifier](https://github.com/oyvindln/vhs-decode/wiki/CX-Cards#external-amplification). But as the Domesday Duplicator already has an amplifier on board, removing that additional ADA4857 amplifier might increase the signal quality or at least remove unnecessary circuitry.
+On the modified version, the input filter/impedance and gain setting will be changed to match the VCRs output impedance and signal strength. This is usually done on the [ADA4857 amplifier](https://github.com/oyvindln/vhs-decode/wiki/CX-Cards#external-amplification). But as the Domesday Duplicator already has an amplifier on board, removing that additional ADA4857 amplifier might increase the signal quality or at least remove unnecessary circuitry. Again, with this setup, the cable from the RF tap point to the Domesday Duplicator might be longer than a cable to an ADA4857 amplifier which can have a negative impact on the signal.
 
 
 #### Configuration for Sony EV-S1000E (1000 Ohm output impedance, V<sub>pp</sub> = ***???*** mV):
