@@ -96,8 +96,9 @@ With a gain of 4.4 the signal showes a good signal amplitude with ~30% headroom.
 
 
 #### Configuration for Sony SLV-T2000 (200 Ohm output impedance, V<sub>pp</sub> = 260 mV): TODO TODO TODO!!!
+Identical to assembly of Sony EV-S1000E
 
-
+Domesday Duplicator gain set to lowest possible setting 2.02
 
 ### CX Card
 Two [CX Cards](https://github.com/oyvindln/vhs-decode/wiki/CX-Cards) are available for testing, one with the CX23883-39, one with the 25800-112. The first on is [said to be a bit better in terms of capture quality, as it causes less electrical self noise](https://github.com/happycube/cxadc-linux3/wiki/Types-Of-CX2388x-Cards#cx-white-card-old-rca-s-video), therefore this one card will be used.
