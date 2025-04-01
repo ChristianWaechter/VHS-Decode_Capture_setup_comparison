@@ -4,6 +4,9 @@
 
 ***Currently work in progress and more of a brainstorming platform***
 
+Youtube Codec requirements
+https://support.google.com/youtube/answer/1722171#zippy=%2Cframe-rate%2Cvideo-codec-h%2Cbitrate%2Caudio-codec-aac-lc-or-opus-or-eclipsa-audio%2Ccontainer-mp%2Cvideo-resolution-and-aspect-ratio%2Ccolor-space
+
 ## Overview of equipment
 
 ### VCRs
