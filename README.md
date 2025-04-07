@@ -163,6 +163,10 @@ Result of command `cxvalues`:
 
 ## Comparison and Conclusion
 
+https://discord.com/channels/665557267189334046/782578245408653313/1356418834851954738
+
+https://support.google.com/youtube/answer/1722171
+
 https://imgsli.com/
 
 ### AD8367 (old) vs ADA4857 (new) amplifier
