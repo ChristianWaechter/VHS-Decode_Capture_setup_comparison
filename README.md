@@ -9,6 +9,8 @@ https://support.google.com/youtube/answer/1722171#zippy=%2Cframe-rate%2Cvideo-co
 
 Hanover bars in test card: https://en.wikipedia.org/wiki/Hanover_bars
 
+tl;dr, CONCLUSION
+A good capture device is noticeable better than a bad one. Don't buy a bad one.
 
 ## Overview of equipment
 
