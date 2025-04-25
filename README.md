@@ -108,7 +108,7 @@ With a gain of 4.4 the signal showes a good signal amplitude with ~30% headroom.
 - C<sub>in</sub> (C401): 47 uF
 - R<sub>bias</sub> (R402 & R403): 33 kOhm each
 - R<sub>in,load</sub> (R401): removed, not assambled
-- R<sub>ADC,bias</sub> (R302): 1.2 kOhm (as in the original DdD design)
+- R<sub>ADC,bias</sub> (R302): 1.5 kOhm || 22 kOhm = 1.4 kOhm
 
 Domesday Duplicator gain set to lowest possible setting 4
 
