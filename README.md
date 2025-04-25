@@ -110,7 +110,7 @@ With a gain of 4.4 the signal showes a good signal amplitude with ~30% headroom.
 - R<sub>in,load</sub> (R401): removed, not assambled
 - R<sub>ADC,bias</sub> (R302): 1.5 kOhm || 22 kOhm = 1.4 kOhm
 
-Domesday Duplicator gain set to lowest possible setting 4
+Domesday Duplicator gain set to lowest possible setting 3.02
 
 
 
